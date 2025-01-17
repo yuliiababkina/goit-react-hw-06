@@ -1,0 +1,26 @@
+.contactCard {
+    border: 1px solid #242424;
+    border-radius: 4px;
+    padding: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 18px;
+    width: 320px;
+}
+
+.contactCardItem {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+.contactCardItem:not(:last-child) {
+    margin-bottom: 4px;
+}
+
+.delateBtn {
+    margin-left: auto;
+}
