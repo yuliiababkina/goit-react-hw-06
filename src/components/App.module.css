@@ -32,6 +32,12 @@ h1 {
     margin-bottom: 24px;
 }
 
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
 .notFound {
     font-family: inherit;
     font-size: 18px;
