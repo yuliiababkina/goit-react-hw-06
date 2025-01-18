@@ -1,4 +1,4 @@
-:root {
+#root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -20,11 +20,9 @@
 }
 
 body {
-    margin: 0;
-    padding: 10px 20px;
-
     min-width: 320px;
     max-width: 1280px;
+    padding: 10px 20px;
 }
 
 h1 {
@@ -36,10 +34,5 @@ ul,
 ol {
     margin: 0;
     padding: 0;
-}
-
-.notFound {
-    font-family: inherit;
-    font-size: 18px;
-    color: currentColor;
+    list-style-type: none;
 }

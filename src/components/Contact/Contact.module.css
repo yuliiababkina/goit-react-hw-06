@@ -14,8 +14,8 @@
 
 .contactCardItem {
     display: flex;
-    gap: 8px;
     align-items: baseline;
+    gap: 8px;
 }
 
 .contactCardItem:not(:last-child) {
