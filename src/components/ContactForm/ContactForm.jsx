@@ -2,10 +2,26 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
 import s from "./ContactForm.module.css";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = () => {
     const nameFieldId = useId();
     const numberFieldId = useId();
+
+    const dispatch = useDispatch();
+
+    const handleAddContact = (values, actions) => {
+        const newContact = {
+            id: nanoid(),
+            name: values.name,
+            number: values.number,
+        };
+
+        dispatch(addContact(newContact));
+        actions.resetForm();
+    };
 
     const FormSchema = Yup.object().shape({
         name: Yup.string()
@@ -22,7 +38,7 @@ const ContactForm = ({ onAddContact }) => {
     return (
         <Formik
             initialValues={{ name: "", number: "" }}
-            onSubmit={onAddContact}
+            onSubmit={handleAddContact}
             validationSchema={FormSchema}
         >
             <Form className={s.contactForm}>
@@ -35,7 +51,7 @@ const ContactForm = ({ onAddContact }) => {
                         name="name"
                         id={nameFieldId}
                         className={s.formInput}
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                     <ErrorMessage
                         name="name"
@@ -53,7 +69,7 @@ const ContactForm = ({ onAddContact }) => {
                         placeholder="000-00-00"
                         id={numberFieldId}
                         className={s.formInput}
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                     <ErrorMessage
                         name="number"
